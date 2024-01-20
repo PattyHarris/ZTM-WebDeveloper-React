@@ -238,7 +238,7 @@ Resources:
 
     ```
 
-## Building Your First React App 1
+## Building A React App 1
 
 1. Resources:
    - https://robohash.org/
@@ -279,3 +279,79 @@ Resources:
     const Card = ({ name, email, id }) => {
 
    ```
+
+## React.Fragment and Semantic HTML
+
+Resources: - https://blog.logrocket.com/rendering-child-elements-react-fragments/
+
+Instead of wrapping everything in a "div" when returning more than a single line of JSX, use React.Fragment (as a wrapper) instead:
+
+```jsx
+function FAQ() {
+  return (
+    <React.Fragment>
+      <p>Q. What is React?</p>
+      <p>A. A JavaScript library for building user interfaces</p>
+      <p>Q. How do I render sibling elements?</p>
+      <p>A. Use Fragments</p>
+    </React.Fragment>
+  );
+}
+
+/* Or, using the <> </> notation */
+function FAQ() {
+  return (
+    <>
+      <p>Q. What is React?</p>
+      <p>A. A JavaScript library for building user interfaces</p>
+      <p>Q. How do I render sibling elements?</p>
+      <p>A. Use Fragments</p>
+    </>
+  );
+}
+```
+
+## The dirty little secret to become an expert
+
+Read the docs...
+
+## Exercise: Learn to Read the Docs
+
+Read the docs for "StrictMode" - actually a good thing to read since it discusses it's purpose during development.
+
+## Building A React App 2
+
+1.  Using the parent to child control rules, create a "CardList" component that will control all the "Card" components.
+2.  Instead of using the "cardArray" in "CardList", the code that "maps" the items into the "cardArray" could simply be put in the main "return" of "CardList".
+
+    ```jsx
+    const CardList = ({ robots }) => {
+      const cardArray = robots.map((robot, index) => {
+        return (
+          <Card
+            key={index}
+            id={robot.id}
+            name={robot.name}
+            email={robot.email}
+          />
+        );
+      });
+      return <div>{cardArray}</div>;
+    };
+
+    /* Instead */
+    return (
+      <div>
+        {robots.map((robot, index) => {
+          return (
+            <Card
+              key={index}
+              id={robot.id}
+              name={robot.name}
+              email={robot.email}
+            />
+          );
+        })}
+      </div>
+    );
+    ```
