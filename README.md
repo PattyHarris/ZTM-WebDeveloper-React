@@ -355,3 +355,70 @@ Read the docs for "StrictMode" - actually a good thing to read since it discusse
       </div>
     );
     ```
+
+## Building A React App 3
+
+1. Resources:
+   - https://react.dev/learn/responding-to-events (given link is outdated)
+   - https://www.w3schools.com/jsref/jsref_tolowercase.asp
+   - https://www.w3schools.com/jsref/jsref_includes.asp
+2. This section adds the title and search box.
+3. Refactor to put back a App component that will return the CardList component.
+4. Add the title to the App.
+5. Add a SearchBox component.
+6. State: we need state to communicate between components. In order for the SearchBox to give data to the CardList, we need to pass the data from the SearchBox to it's parent (the App) which can then pass that along to it's child component, the CardList.
+7. In order to use state, the function components need to be reverted back to class components - but this, based on the documentation is no longer needed after version 16.8..but, if you use a functional component, you'll need hooks to manage state, among other things (Geeks has a great comparison on the difference between class and functional components).
+8. Our state object - which then is used in the constructor of the App component:
+
+   ```jsx
+   const state = {
+     robots: robots,
+     searchField: "",
+   };
+   ```
+
+9. Create a callback function, "onSearchChange" that takes an event - added to the App component and passed to the SearchBox component:
+
+   ```jsx
+   onSearchChange(event) {
+
+   }
+
+   /* The passed to the SearchBox */
+   < SearchBox searchChange={this.onSearchChange}>
+   ```
+
+10. "this" inside of the App's "onSearchChange function doesn't refer to the App's "this", but the "this" of the "input" field of the SearchBox. To fix the problem, use arrow functions (hmmmm):
+
+    ```jsx
+        onSearchChange(event) {
+            const filteredRobots = this.state.robots.filter((robot) => {
+                return robot.name.toLowerCase()
+                    .includes(this.state.searchField.toLowerCase());
+            });
+
+            console.log(filteredRobots);
+        }
+
+        /* Instead.... */
+        onSearchChange = (event) => {
+
+        }
+    ```
+
+11. To change state, we need to use "this.setState()", NOT "this.state = ". Just the way it is...
+
+    ```jsx
+    onSearchChange = (event) => {
+      this.setState({ searchField: event.target.value });
+      const filteredRobots = this.state.robots.filter((robot) => {
+        return robot.name
+          .toLowerCase()
+          .includes(this.state.searchField.toLowerCase());
+      });
+
+      console.log(filteredRobots);
+    };
+    ```
+
+12. Using "filteredRobots" - move the code to the App's render function and pass that array to the CardList component instead of "this.state.robots".
