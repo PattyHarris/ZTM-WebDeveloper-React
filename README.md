@@ -502,3 +502,56 @@ Read the docs for "StrictMode" - actually a good thing to read since it discusse
    ```
 
 4. Using inline styles in JSX: "{{}}" - here to make use of inline styles, see the Scroll component.
+
+## Building A React App 6
+
+1. Refactor the application to organize all the files into component and container folders.
+2. "components" will include all the pure function components. "containers" will contain the components (App.js) which have state.
+3. Also, instead of using "this.state.whatever":
+
+   ```jsx
+   render() {
+       const { robots, searchfield } = this.state;
+       const filterRobots = robots.filter( robot => {
+           return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+       })
+
+       /* etc. */
+   }
+   ```
+
+4. Another bit of cleanup:
+
+   ```jsx
+   /* Change this */
+   if (robots.length === 0) {
+     return <h1 className="tc">Loading.....</h1>;
+   } else {
+     return (
+       <div className="tc">
+         <h1 className="f1">RoboFriends</h1>
+         <SearchBox searchChange={this.onSearchChange} />
+         <Scroll>
+           <CardList robots={filteredRobots} />;
+         </Scroll>
+       </div>
+     );
+   }
+   }
+
+   /* To */
+    return !robots.length ? (
+      <h1 className="tc">Loading.....</h1>
+    ) : (
+      <div className="tc">
+        <h1 className="f1">RoboFriends</h1>
+        <SearchBox searchChange={this.onSearchChange} />
+        <Scroll>
+          <CardList robots={filteredRobots} />;
+        </Scroll>
+      </div>
+    );
+   }
+   ```
+
+5. npm run build - creates a "build" folder with all the code optimized and minimized. The output of the build also includes help on how to install the code.
