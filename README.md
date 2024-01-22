@@ -422,3 +422,12 @@ Read the docs for "StrictMode" - actually a good thing to read since it discusse
     ```
 
 12. Using "filteredRobots" - move the code to the App's render function and pass that array to the CardList component instead of "this.state.robots".
+
+## Styling Your React App
+
+1. Resources:
+   - https://css-tricks.com/snippets/css/using-font-face-in-css/
+   - sega-logo-font-cufonfonts-webfont
+2. Add the background gradient to index.css.
+3. Added back the App.css file to include the "sego-logo" font. See the above resource about using the new file format for fonts. The sego.wolf file must reside in the project (or on some path).
+4.
