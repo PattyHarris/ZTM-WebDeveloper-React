@@ -488,3 +488,17 @@ Read the docs for "StrictMode" - actually a good thing to read since it discusse
       /* Usual render */
     }
     ```
+
+## Building A React App 5
+
+1. Using React to refactor the search area to stay at the top of the screen when the user scrolls. Uses the concepts around "children".
+2. Create a component "Scroll" that wraps around the CardList component (or any component that needs scrolling).
+3. Since the CardList is a child of the Scroll component, returning "props.children" effectively renders the CardList component:
+
+   ```jsx
+   const ScrollList = (props) => {
+     return props.children;
+   };
+   ```
+
+4. Using inline styles in JSX: "{{}}" - here to make use of inline styles, see the Scroll component.
