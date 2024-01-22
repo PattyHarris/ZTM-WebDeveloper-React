@@ -430,4 +430,61 @@ Read the docs for "StrictMode" - actually a good thing to read since it discusse
    - sega-logo-font-cufonfonts-webfont
 2. Add the background gradient to index.css.
 3. Added back the App.css file to include the "sego-logo" font. See the above resource about using the new file format for fonts. The sego.wolf file must reside in the project (or on some path).
-4.
+
+## Building A React App 4
+
+1. Resources (the first 2 are the same, in case the first one is "down"):
+   - https://jsonplaceholder.typicode.com/
+   - https://jsonplaceholder.cypress.io/
+   - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+   - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+2. In this section, use an API instead of the hard-coded array of robots.
+3. Smart Components: App.js has state which makes it a "smart component", whereas the other components are "pure functions" (e.g. no state).
+4. Lifecycle methods: using ComponentDidMount to load the robots.js file. NOTE: some lifecycle methods are deprecated, such as ComponentWillMount.
+5. NOTE: added a "name" attribute to the search box input to get rid of a minor warning in the console asking for "name" or "id".
+6. Before we replace the list of robots with fetch:
+
+   ```jsx
+   class App extends Component {
+   constructor() {
+       super();
+       this.state = {
+       robots: [],
+       searchField: "",
+       };
+   }
+
+   componentDidMount() {
+       this.setState({ robots: robots });
+   }
+
+   ```
+
+7. Fetch - using this URL: https://jsonplaceholder.typicode.com/users from the resources above.
+8. Fetch code:
+
+   ```jsx
+   fetch("https://jsonplaceholder.typicode.com/users")
+     .then((response) => {
+       return response.json();
+     })
+     .then((users) => {
+       this.setState({ robots: users });
+     });
+
+   /* Or more cleanly */
+   fetch("https://jsonplaceholder.typicode.com/users")
+     .then((response) => response.json())
+     .then((users) => this.setState({ robots: users }));
+   ```
+
+9. NOTE: VSCode puts "()" around variables that aren't really needed....e.g (response) above.
+10. If the access to the online robots is slow, add a conditional to the "render":
+
+    ```jsx
+    if (this.state.robots.length === 0) {
+      return <h1>Loading</h1>;
+    } else {
+      /* Usual render */
+    }
+    ```
