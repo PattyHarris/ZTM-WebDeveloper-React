@@ -555,3 +555,38 @@ Read the docs for "StrictMode" - actually a good thing to read since it discusse
    ```
 
 5. npm run build - creates a "build" folder with all the code optimized and minimized. The output of the build also includes help on how to install the code.
+
+## Project Files
+
+Resources: https://github.com/aneagoie/robofriends
+
+## Keeping Projects Up To Date
+
+1. To update the repo, first clone, then "npm install" - here you might see the usual "run npm audit fix" and followed by some warnings about "breaking change". That means that some of the changes may break your project. If you run "npm audit" (without "fix") it gives you some idea as to which packages might be the problem.
+2. Instead of running "npm audit fix --force", run "npm update" and then "npm audit fix --force". The issue in my case is that "react-scripts" is newer than the "fixed" version "react-scripts@3.0.1" - since I don't want to downgrade the version, I'll just leave this stuff as is.
+3. Actually, after removing package.json and package-lock.json and re-installing, I'm down to one error: PostCSS line return parsing error - blah blah blah - which apparently a new bug that hasn't been fixed...
+4. Steps - this gets the errors down to the PostCSS error (this after a bunch of searches):
+
+   ```bash
+   > npm install @svgr/webpack --save-dev
+   > rm -rf node_modules
+   > rm package-lock.json
+   > npm install
+   ```
+
+## React Error Boundary
+
+1. The ability for a component to more gracefully handle errors.
+2. Create a new component, ErrorBoundary.js.
+3. If any errors occur in the CardList, the error is then caught by ErrorBoundary which wraps CardList.
+4. To test, add the following to CardList:
+
+   ```jsx
+   if (true) {
+     throw new Error("Ouch!");
+   }
+   ```
+
+5. You won't really see the error work properly since we're running in development mode. I tried to use setTimeout, but this requires useEffect which only works on functional components.
+
+## Deploying our React App
