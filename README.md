@@ -590,3 +590,9 @@ Resources: https://github.com/aneagoie/robofriends
 5. You won't really see the error work properly since we're running in development mode. I tried to use setTimeout, but this requires useEffect which only works on functional components.
 
 ## Deploying our React App
+
+1. Resources:
+   - https://create-react-app.dev/docs/deployment/#github-pages
+2. Pretty much follow the steps in the above resource except that I had to make this repository public (it's a setting in the Danger Zone area under the project Settings).
+3. Under Settings, Pages change the Branch to gh-pages. Click Save. You might need to wait a bit.
+4. Doesn't really work since I have "robo-friends" as a sub-folder. There is an on-going complaint thread about this on the various forums.
