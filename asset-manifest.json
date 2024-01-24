@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/css/main.fb6b90b0.css",
-    "main.js": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/js/main.78f3698b.js",
-    "static/js/787.ad72d900.chunk.js": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/js/787.ad72d900.chunk.js",
-    "static/media/SEGA.woff": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
-    "index.html": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/index.html",
-    "main.fb6b90b0.css.map": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/css/main.fb6b90b0.css.map",
-    "main.78f3698b.js.map": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/js/main.78f3698b.js.map",
-    "787.ad72d900.chunk.js.map": "/PattyHarris/ZTM-WebDeveloper-React/tree/main/robo-friends/static/js/787.ad72d900.chunk.js.map"
+    "main.css": "/PattyHarris/ZTM-WebDeveloper-React/static/css/main.fe47aabd.css",
+    "main.js": "/PattyHarris/ZTM-WebDeveloper-React/static/js/main.fa6afe8f.js",
+    "static/js/787.ad72d900.chunk.js": "/PattyHarris/ZTM-WebDeveloper-React/static/js/787.ad72d900.chunk.js",
+    "static/media/SEGA.woff": "/PattyHarris/ZTM-WebDeveloper-React/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
+    "index.html": "/PattyHarris/ZTM-WebDeveloper-React/index.html",
+    "main.fe47aabd.css.map": "/PattyHarris/ZTM-WebDeveloper-React/static/css/main.fe47aabd.css.map",
+    "main.fa6afe8f.js.map": "/PattyHarris/ZTM-WebDeveloper-React/static/js/main.fa6afe8f.js.map",
+    "787.ad72d900.chunk.js.map": "/PattyHarris/ZTM-WebDeveloper-React/static/js/787.ad72d900.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb6b90b0.css",
-    "static/js/main.78f3698b.js"
+    "static/css/main.fe47aabd.css",
+    "static/js/main.fa6afe8f.js"
   ]
 }
