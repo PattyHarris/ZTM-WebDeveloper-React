@@ -596,3 +596,7 @@ Resources: https://github.com/aneagoie/robofriends
 2. Pretty much follow the steps in the above resource except that I had to make this repository public (it's a setting in the Danger Zone area under the project Settings).
 3. Under Settings, Pages change the Branch to gh-pages. Click Save. You might need to wait a bit.
 4. Doesn't really work since I have "robo-friends" as a sub-folder. There is an on-going complaint thread about this on the various forums.
+5. Important: the "homepage" url is NOT the URL of the project, but is as indicated in the documentation, e.g. "homepage": "https://PattyHarris.github.io/ZTM-WebDeveloper-React",
+6. If you make any changes, be sure to run "npm run deploy" again.
+7. And, you don't need to check-in the package.json file BEFORE you make the changes on github (e.g. Settings, Pages, ...).
+8. Lastly, the URL can then be added to the "website" setting on the first page of the repository.
